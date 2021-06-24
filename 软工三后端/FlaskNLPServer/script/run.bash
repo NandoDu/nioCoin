@@ -1,0 +1,1 @@
+FLASK_APP=flask-nlp-server.application FLASK_ENV=production flask run

@@ -1,0 +1,51 @@
+properties([gitLabConnection('nioCoin')])
+def name = env.BRANCH_NAME
+def port = 0
+if (name == 'master') {
+    port = 9001
+} else if (name == 'dev') {
+    port = 9000
+}
+
+node {
+    checkout scm
+    stage('Build and Test') {
+        docker.image("maven:3-alpine").inside(
+            "--name ${name}-build \
+            -v mvn-data:/root/.m2 \
+            -v /home/ubuntu/nioCoin:/nioCoin"
+        ) {
+            updateGitlabCommitStatus name: 'Build', state: 'pending'
+            sh "cp /nioCoin/backend/config/application-dev.yml src/main/resources"
+            sh "mvn -DskipTests clean package"
+            updateGitlabCommitStatus name: 'Build', state: 'success'
+
+            updateGitlabCommitStatus name: 'Test', state: 'pending'
+
+            updateGitlabCommitStatus name: 'Test', state: 'success'
+            sh "mkdir -p /nioCoin/backend/product"
+            sh "mv target/kgbackend-0.0.1-SNAPSHOT.jar /nioCoin/backend/product/production.jar"
+            sh "rm -rf /nioCoin/backend/product/FlaskNLPServer"
+            sh "mv FlaskNLPServer /nioCoin/backend/product"
+            sh "cp sql/init.sql /nioCoin/backend/product/init.sql"
+            sh "mvn test jacoco:report"
+            sh "cp -r target/site /nioCoin/backend/product/ && rm -rf target/site"
+        }
+    }
+
+    stage('Deployment') {
+
+        // skip deployment when unmapped branch found!
+        if (port != 0) {
+            sh "fuser -k ${port}/tcp || true"
+            // sh "fuser -k ${port + 10}/tcp || true"
+            updateGitlabCommitStatus name: 'Deployment', state: 'pending'
+            withEnv(['JENKINS_NODE_COOKIE=DontKillMe']) {
+                sh "sh script/start.sh ${port}"
+                // sh "sh script/run_python.bash ${port + 10}"
+            }
+            updateGitlabCommitStatus name: 'Deployment', state: 'success'
+        }
+
+    }
+}

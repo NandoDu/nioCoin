@@ -1,0 +1,27 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      properties: 
+        max:
+          request:
+            size: 2147483647
+    comsumer:
+      group-id: grpid
+  neo4j:
+    uri: bolt://49.235.251.50:7687
+  datasource:
+    url: jdbc:mysql://118.195.135.53:3306/kg?serverTimezone=CTT&characterEncoding=UTF-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  mail:
+    host: smtp.163.com
+    default-encoding: utf-8
+  redis:
+#    host: 118.195.135.53
+    host: 127.0.0.1
+    timeout: 1000
+    database: 1
+  profiles:
+    active: dev
+server:
+  port: 9000

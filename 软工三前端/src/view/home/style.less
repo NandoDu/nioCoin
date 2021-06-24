@@ -1,0 +1,109 @@
+.elButtonStyle {
+  position   : relative;
+  box-shadow : 3px 3px 3px #46a0e1;
+}
+
+.elButtonStyle:hover {
+  top : 2px;
+}
+
+.elButtonStyle:active {
+  top : 4px
+}
+
+.learn-more-style:hover {
+  top    : 1px;
+  color  : #46a0e1;
+  cursor : pointer;
+}
+
+.learn-more-style:active {
+  top   : 2px;
+  color : #46a0e1;
+}
+
+@media (max-width : 544px) {
+  .content {
+    flex-direction : column;
+  }
+
+  .img-zoom {
+    max-height : 374px;
+    max-width  : 326px;
+    position   : relative;
+  }
+
+  .paragraph-button-block {
+    flex-direction : column;
+    align-items    : center;
+  }
+
+  .learn-more-style {
+    margin-top : 15px;
+    position   : relative;
+  }
+}
+
+@media (min-width : 544px) {
+  .content {
+    flex-direction : column;
+  }
+
+  .img-zoom {
+    max-height : 374px;
+    max-width  : 326px;
+  }
+
+  .paragraph-button-block {
+    flex-direction : column;
+    align-items    : center;
+  }
+
+  .learn-more-style {
+    margin-top : 15px;
+  }
+}
+
+@media (min-width : 1012px) {
+  .content {
+    flex-direction : row;
+  }
+
+  .paragraph-button-block {
+    flex-direction  : row;
+    justify-content : center;
+  }
+
+  .learn-more-style {
+    margin-left : 15px;
+  }
+}
+
+.main-container {
+  width           : 100vw;
+  padding-top     : 90px;
+  display         : flex;
+  justify-content : center;
+}
+
+.paragraph-button-block {
+  margin-top : 80px;
+  display    : flex;
+
+}
+
+.content {
+  display         : flex;
+  justify-content : center;
+  align-items     : center;
+  max-width       : 976px;
+  padding-left    : 82px;
+  padding-right   : 82px
+}
+
+.learn-more-style {
+  position        : relative;
+  font-size       : 16px;
+  font-weight     : normal;
+  text-decoration : underline
+}

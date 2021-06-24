@@ -1,0 +1,24 @@
+properties([gitLabConnection('nioCoin')])
+def name = env.BRANCH_NAME
+
+node {
+    checkout scm
+    stage('Build') {
+        docker.image("node:14-alpine").inside(
+            "--name frontend-build-${name} \
+            -v node-cache:/nodeCache \
+            -v /home/ubuntu/nioCoin:/nioCoin"
+        ) {
+            sh "yarn config set cache-folder /nodeCache"
+            updateGitlabCommitStatus name: 'Build', state: 'pending'
+            sh "yarn && BRANCH_NAME=${name} yarn build"
+            updateGitlabCommitStatus name: 'Build', state: 'success'
+
+            if (name == 'master' || name == 'develop') {
+                sh "rm -rf ${name} && mv dist ${name}"
+                sh "cp -r ${name} /nioCoin/frontend/product/dist/ && rm -rf ${name}"
+            }
+        }
+    }
+
+}

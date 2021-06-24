@@ -1,0 +1,89 @@
+.body {
+  margin     : 0;
+  padding    : 0;
+  overflow-x : hidden;
+  overflow-y : auto;
+}
+
+.loginBox {
+  height : 100vh;
+}
+
+.leftPic {
+  width               : 450px;
+  height              : 100vh;
+  background-image    : url(https://cdn.jsdelivr.net/gh/icimence/CDN/mac_burstblue.jpg);
+  position            : relative;
+  background-size     : cover;
+  background-position : center center;
+  background-repeat   : no-repeat;
+  float               : left;
+  transition          : all 0.5s;
+}
+
+@media screen and (max-width : 1076px) {
+  .leftPic {
+    width : 0;
+  }
+}
+
+*, *:before, *:after {
+  box-sizing : inherit;
+}
+
+.rightForm {
+  color             : rgb(65, 80, 88);
+  font-size         : 14px;
+  background        : rgb(255, 255, 255);
+  width             : auto;
+  flex              : 1 1 0;
+  display           : flex;
+  -webkit-box-align : center;
+  align-items       : center;
+  flex-direction    : column;
+  position          : relative;
+  height            : 100vh;
+  justify-content   : center;
+  transition        : all 0.5s;
+  //padding-top: 15%;
+  transform         : scale(1);
+}
+
+.title {
+  margin-top     : 0px;
+  font-size      : 32px;
+  color          : rgb(31, 41, 46);
+  font-weight    : 500;
+  line-height    : 1.4;
+  width          : 430px;
+  text-align     : start;
+  display        : flex;
+  flex-direction : column;
+  margin-bottom  : 40px;
+}
+
+.loginForm {
+  width         : 430px;
+  margin-bottom : 20px;
+}
+
+.loginPageLink {
+  color           : #46a0e1;
+  cursor          : pointer;
+  text-decoration : none;
+}
+
+.loginPageLink:hover {
+  text-decoration : underline;
+}
+
+
+.loginReturn{
+  font-size: 32px;
+}
+
+.loginReturn:hover{
+  font-size: 32px;
+  cursor: pointer;
+  color: cornflowerblue;
+}

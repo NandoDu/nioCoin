@@ -1,0 +1,5 @@
+flask~=1.1.2
+kafka-python
+tensorflow~=1.14.0
+numpy~=1.19.5
+ltp~=4.1.4.post1

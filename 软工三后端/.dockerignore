@@ -1,0 +1,11 @@
+/.idea/
+/out/
+/target/
+*.iml
+.mvn
+/src/main/resources/application-dev.yml
+.DS_Store
+
+# docker only
+/.git/
+# /doc .... wait /doc to be truly doc folder

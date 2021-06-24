@@ -1,0 +1,184 @@
+.header-container {
+  box-shadow     : 2px 2px 5px #b7babd;
+  padding-top    : 8px !important;
+  padding-bottom : 8px !important;
+  height         : 56px;
+  right          : 0;
+  left           : 0;
+  position       : relative;
+  align-items    : center;
+}
+
+.avatarStyle {
+  width         : 36px;
+  height        : 36px;
+  border-radius : 50%;
+  margin-top    : 10px;
+  box-shadow    : 3px 3px 3px #b7babd;
+  position      : relative;
+}
+
+.avatarStyle:hover {
+  top : 2px
+}
+
+.avatarStyle:active {
+  top : 3px
+}
+
+.header-all {
+  margin : 0 auto;
+  height : 56px;
+}
+
+.header-padding {
+  padding-left  : 24px !important;
+  padding-right : 24px !important;
+}
+
+.menu-block {
+  line-height : 56px;
+  float       : left;
+  margin-left : 40px
+}
+
+.menu-block-visible {
+  display : none;
+}
+
+.menu-item {
+  margin-right : 20px;
+  font-size    : 18px;
+  color        : black;
+  display      : inline-block;
+}
+
+.menu-item:hover {
+  cursor : pointer;
+  color  : #46a0e1;
+}
+
+@media (max-width : 544px) {
+  .loginDrawerTrigger {
+    display     : inline-block;
+    margin-left : 16px;
+  }
+
+  .only-burger-visible {
+    display : block;
+  }
+
+  .sign-block-visible {
+    display : none;
+  }
+
+  .burger-block-visible {
+    display : none;
+  }
+
+  .menu-block-visible {
+    display : none;
+  }
+}
+
+@media (min-width : 544px) {
+  .loginDrawerTrigger {
+    display     : inline-block;
+    margin-left : 20px;
+  }
+
+  .header-padding {
+    padding-left  : 40px !important;
+    padding-right : 40px !important;
+  }
+
+  .only-burger-visible {
+    display : none !important;
+  }
+
+  .burger-block-visible {
+    display : flex;
+  }
+
+  .sign-block-visible {
+    display : none;
+  }
+
+  .menu-block-visible {
+    display : none;
+  }
+}
+
+@media (min-width : 1012px) {
+  .loginDrawerTrigger {
+    display : none;
+  }
+
+  .only-burger-visible {
+    display : none !important;
+  }
+
+  .header-padding {
+    padding-left  : 16px !important;
+    padding-right : 16px !important;
+  }
+
+  .burger-block-visible {
+    display : none !important;
+  }
+
+  .sign-block-visible {
+    display : flex;
+  }
+
+  .menu-block-visible {
+    display : block;
+  }
+}
+
+.burger-block {
+  float          : right;
+  line-height    : 56px;
+  flex-direction : row;
+}
+
+.sign-block {
+  float          : right;
+  flex-direction : row;
+  margin-top     : 8px;
+}
+
+.only-burger {
+  float      : right;
+  margin-top : 8px;
+}
+
+.a-override:hover {
+  cursor : pointer;
+}
+
+.div-hover:hover {
+  cursor : pointer;
+}
+
+.limited {
+  max-width : 1280px;
+}
+
+.linkClass {
+  margin-top : 10px;
+}
+
+.linkClass:hover {
+  color  : #46a0e1;
+  cursor : pointer;
+}
+
+.burger-link:hover {
+  color  : #46a0e1;
+  cursor : pointer;
+}
+
+.el-dropdown-link:hover {
+  color : #46a0e1 !important;
+}

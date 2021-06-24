@@ -1,0 +1,7 @@
+/.idea/
+/out/
+/target/
+*.iml
+.mvn
+/src/main/resources/application-dev.yml
+.DS_Store
